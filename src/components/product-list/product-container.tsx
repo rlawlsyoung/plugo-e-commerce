@@ -55,8 +55,8 @@ const Img = styled.img`
   }
 
   @media ${responsive.mobile} {
-    width: 35vw;
-    height: 35vw;
+    width: 40vw;
+    height: 40vw;
   }
 `;
 

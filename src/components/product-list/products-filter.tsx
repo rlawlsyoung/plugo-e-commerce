@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { responsive } from "../../styles/theme";
+
 import {
   clickedColor,
   darkGreen,
@@ -56,6 +58,11 @@ const Filter = styled.div<{ filterState: string; filter: string }>`
   &:hover {
     background-color: ${(props) =>
       props.filterState !== props.filter && hoveredColor};
+  }
+
+  @media ${responsive.mobile} {
+    width: 120px;
+    font-size: 12px;
   }
 `;
 

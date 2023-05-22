@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { bgColor, deepDarkGreen } from "../../styles/theme";
+import { bgColor, deepDarkGreen, responsive } from "../../styles/theme";
 import { ProductType } from "../../pages/product-list";
 import { productsAtom } from "../../atom";
 
@@ -69,6 +69,11 @@ const Menu = styled.li`
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+
+  @media ${responsive.mobile} {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
 `;
 
 export default Header;

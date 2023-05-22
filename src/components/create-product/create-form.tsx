@@ -24,7 +24,6 @@ const CreateForm = () => {
         colorRef.current?.value &&
         priceRef.current?.value &&
         quantityRef.current?.value &&
-        categoryRef.current?.value &&
         nameRef.current.value.length <= 16 &&
         nameRef.current.value.length >= 2 &&
         colorRef.current.value.length <= 16 &&
@@ -34,7 +33,9 @@ const CreateForm = () => {
       ) {
         const newProduct = {
           id: lastId + 1,
-          category: ["Semua Produk", ...categoryRef.current.value.split(",")],
+          category: categoryRef.current?.value
+            ? ["Semua Produk", ...categoryRef.current.value.split(",")]
+            : ["Semua Produk"],
           color: colorRef.current.value,
           image: imageRef.current.value,
           name: nameRef.current.value,
@@ -52,7 +53,7 @@ const CreateForm = () => {
         colorRef.current.value = "";
         priceRef.current.value = "";
         quantityRef.current.value = "";
-        categoryRef.current.value = "";
+        if (categoryRef.current?.value) categoryRef.current.value = "";
       } else {
         alert("Please enter it according to the conditions.");
       }
