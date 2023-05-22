@@ -16,7 +16,7 @@ const Product: React.FC<Props> = ({ name, image, price, cartQuantity }) => {
       <Wrapper>
         <Name>{name}</Name>
         <Price>Rp {price?.toLocaleString()}</Price>
-        <Quantity>Quantity : {cartQuantity}</Quantity>
+        <Quantity>Kuantitas : {cartQuantity}</Quantity>
       </Wrapper>
     </StyledProduct>
   );
