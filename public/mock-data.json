@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": ["Semua Produk", "Produk Unggulan", "Produk Baru"],
+      "color": "black",
+      "image": "https://images.unsplash.com/photo-1585728748176-455ac5eed962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "name": "Snake Pattern Scarf",
+      "price": 190000,
+      "quantity": 32
+    },
+    {
+      "id": 2,
+      "category": ["Semua Produk", "Produk Unggulan"],
+      "color": "white",
+      "image": "https://plus.unsplash.com/premium_photo-1671658222146-5203662758f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=386&q=80",
+      "name": "Snow Scarf",
+      "price": 210000,
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "category": ["Semua Produk", "New Product"],
+      "color": "white",
+      "image": "https://images.unsplash.com/photo-1601244005535-a48d21d951ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=385&q=80",
+      "name": "Bandana Scarf",
+      "price": 230000,
+      "quantity": 0
+    },
+    {
+      "id": 4,
+      "category": ["Semua Produk", "Produk Unggulan", "New Product"],
+      "color": "orange",
+      "image": "https://images.unsplash.com/photo-1507835661088-ac1e84fe645f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1262&q=80",
+      "name": "Sun Scarf",
+      "price": 250000,
+      "quantity": 12
+    },
+    {
+      "id": 5,
+      "category": ["Semua Produk", "New Product"],
+      "color": "black",
+      "image": "https://images.unsplash.com/photo-1609362065704-0e1da86d582a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "name": "Check Pattern Scarf",
+      "price": 270000,
+      "quantity": 123
+    }
+  ]
+}
