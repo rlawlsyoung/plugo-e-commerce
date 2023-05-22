@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { darkGreen } from "../../styles/theme";
+import { darkGreen, deepDarkGreen, lightDarkGreen } from "../../styles/theme";
 
 interface Props {
   color: string;
@@ -18,16 +18,22 @@ const ProductContainer: React.FC<Props> = ({
   quantity,
 }) => {
   return (
-    <>
+    <StyledProductContainer>
       <ImgWrapper>
         <Img src={image} alt={name} />
-        <Quantity>{quantity ? "Ada Stok" : "Stok menipis"}</Quantity>
+        <Quantity quantity={quantity}>
+          {quantity ? "Ada Stok" : "Stok menipis"}
+        </Quantity>
       </ImgWrapper>
       <Name>{name}</Name>
-      <Price>Rp {price}</Price>
-    </>
+      <Price>Rp {price.toLocaleString("en-US")}</Price>
+    </StyledProductContainer>
   );
 };
+
+const StyledProductContainer = styled.div`
+  cursor: pointer;
+`;
 
 const ImgWrapper = styled.div`
   position: relative;
@@ -39,18 +45,28 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const Quantity = styled.p`
+interface QuantityProps {
+  quantity: number;
+}
+
+const Quantity = styled.p<QuantityProps>`
   position: absolute;
   left: 7.5px;
   bottom: 7.5px;
   padding: 2px;
-  background-color: ${darkGreen};
-  color: white;
+  background-color: ${(props) => (props.quantity ? deepDarkGreen : "white")};
+  color: ${(props) => (props.quantity ? "white" : "black")};
   font-size: 12px;
 `;
 
-const Name = styled.p``;
+const Name = styled.p`
+  color: ${darkGreen};
+  padding: 30px 0 5px 0;
+`;
 
-const Price = styled.p``;
+const Price = styled.p`
+  color: ${lightDarkGreen};
+  padding: 0 0 60px 0;
+`;
 
 export default ProductContainer;
