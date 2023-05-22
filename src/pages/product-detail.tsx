@@ -9,6 +9,7 @@ import {
   darkGreen,
   deepBrown,
   lightDarkGreen,
+  responsive,
 } from "../styles/theme";
 
 const ProductDetail = () => {
@@ -39,6 +40,10 @@ const StyledProductDetail = styled.div`
   justify-content: center;
   margin-top: 112px;
   margin-bottom: 60px;
+
+  @media ${responsive.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.img`
@@ -47,6 +52,11 @@ const Image = styled.img`
   object-fit: contain;
   margin-right: 20px;
   background-color: #e0e0e0;
+
+  @media ${responsive.tablet} {
+    width: 100vw;
+    margin-bottom: 50px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -55,6 +65,12 @@ const InfoContainer = styled.div`
   align-items: flex-start;
   width: 35vw;
   height: 600px;
+
+  @media ${responsive.tablet} {
+    width: 100vw;
+    padding: 0 15px;
+    height: auto;
+  }
 `;
 
 const Quantity = styled.p<{ quantity: number }>`
@@ -78,12 +94,13 @@ const Price = styled.p`
 
 const Button = styled.button`
   width: 100%;
-  padding: 8px;
+  padding: 12px;
   margin-top: 25px;
   border: none;
+  border-radius: 5px;
   background-color: ${deepBrown};
   color: white;
-  font-size: 24px;
+  font-size: 16px;
   font-family: "Cabin", sans-serif;
   cursor: pointer;
 `;
