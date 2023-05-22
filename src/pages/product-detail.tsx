@@ -58,6 +58,7 @@ const ProductDetail = () => {
 
       setCart([currentCartProduct, ...cart]);
     }
+    alert("Successfully placed in cart!");
   }, [currentProduct, cart, setCart]);
 
   useEffect(() => {
