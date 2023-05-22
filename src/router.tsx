@@ -6,6 +6,7 @@ import ProductList from "./pages/product-list";
 import GlobalStyle from "./styles/global-style";
 import Header from "./components/header/header";
 import CreateProduct from "./pages/create-product";
+import ProductDetail from "./pages/product-detail";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/create" element={<CreateProduct />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
         </Routes>
         <Header />
       </RecoilRoot>

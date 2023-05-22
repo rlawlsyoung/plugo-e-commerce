@@ -42,6 +42,7 @@ const ProductList = () => {
         {filteredProducts.map((product) => (
           <ProductContainer
             key={product.id}
+            id={product.id}
             image={product.image}
             name={product.name}
             price={product.price}

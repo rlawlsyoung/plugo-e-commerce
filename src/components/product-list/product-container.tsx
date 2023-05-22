@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import {
@@ -8,6 +9,7 @@ import {
 } from "../../styles/theme";
 
 interface Props {
+  id: string;
   color: string;
   image: string;
   name: string;
@@ -16,6 +18,7 @@ interface Props {
 }
 
 const ProductContainer: React.FC<Props> = ({
+  id,
   image,
   name,
   price,
@@ -23,14 +26,16 @@ const ProductContainer: React.FC<Props> = ({
 }) => {
   return (
     <StyledProductContainer>
-      <ImgWrapper>
-        <Img src={image} alt={name} />
-        <Quantity quantity={Number(quantity)}>
-          {Number(quantity) ? "Ada Stok" : "Stok menipis"}
-        </Quantity>
-      </ImgWrapper>
-      <Name>{name}</Name>
-      <Price>Rp {price?.toLocaleString()}</Price>
+      <Link to={`/products/${id}`}>
+        <ImgWrapper>
+          <Img src={image} alt={name} />
+          <Quantity quantity={Number(quantity)}>
+            {Number(quantity) ? "Ada Stok" : "Stok menipis"}
+          </Quantity>
+        </ImgWrapper>
+        <Name>{name}</Name>
+        <Price>Rp {price?.toLocaleString()}</Price>
+      </Link>
     </StyledProductContainer>
   );
 };
