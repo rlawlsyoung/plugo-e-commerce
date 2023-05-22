@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
 interface Props {
-  name: string;
+  color: string;
   image: string;
+  name: string;
   price: number;
+  quantity: string;
 }
 
-const ItemContainer: React.FC<Props> = ({ name, image, price }) => {
+const ProductContainer: React.FC<Props> = ({
+  color,
+  image,
+  name,
+  price,
+  quantity,
+}) => {
   return (
     <>
       <Img src={image} alt={name} />
@@ -22,4 +30,4 @@ const Name = styled.p``;
 
 const Price = styled.p``;
 
-export default ItemContainer;
+export default ProductContainer;

@@ -3,9 +3,9 @@
     {
       "id": 1,
       "category": ["Special Product", "New Product"],
-      "color": "white",
-      "image": "https://unsplash.com/ko/%EC%82%AC%EC%A7%84/PyjLCMReMns",
-      "name": "Rainbow Scarf",
+      "color": "black",
+      "image": "https://images.unsplash.com/photo-1585728748176-455ac5eed962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "name": "Snake Pattern Scarf",
       "price": 190000,
       "quantity": 32
     },
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "category": ["New Product"],
-      "color": "black",
+      "color": "white",
       "image": "https://images.unsplash.com/photo-1601244005535-a48d21d951ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=385&q=80",
       "name": "Bandana Scarf",
       "price": 230000,
