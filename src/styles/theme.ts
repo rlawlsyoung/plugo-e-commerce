@@ -6,7 +6,7 @@ const clickedColor = "#d4d4d4";
 const hoveredColor = "#e4e4e4";
 
 const responsive = {
-  mobile: "screen and (max-width: 600px)",
+  mobile: "screen and (max-width: 625px)",
   tablet: "screen and (max-width: 900px)",
   desktop: "screen and (max-width: 1200px)",
 };

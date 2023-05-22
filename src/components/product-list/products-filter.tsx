@@ -45,7 +45,7 @@ const StyledProductsFilter = styled.div`
 const Filter = styled.div<{ filterState: string; filter: string }>`
   display: flex;
   align-items: center;
-  width: 280px;
+  width: 260px;
   padding: 10px;
   border-radius: 5px;
   background-color: ${(props) =>

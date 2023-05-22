@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-import { darkGreen, deepDarkGreen, lightDarkGreen } from "../../styles/theme";
+import {
+  darkGreen,
+  deepDarkGreen,
+  lightDarkGreen,
+  responsive,
+} from "../../styles/theme";
 
 interface Props {
   color: string;
@@ -40,9 +45,19 @@ const ImgWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  width: 220px;
-  height: 220px;
+  width: 16vw;
+  height: 16vw;
   object-fit: cover;
+
+  @media ${responsive.tablet} {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  @media ${responsive.mobile} {
+    width: 35vw;
+    height: 35vw;
+  }
 `;
 
 const Quantity = styled.p<{ quantity: number }>`
