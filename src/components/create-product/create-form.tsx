@@ -1,4 +1,4 @@
-import { useCallback, useRef, useEffect } from "react";
+import { useCallback, useRef } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
@@ -34,7 +34,7 @@ const CreateForm = () => {
       ) {
         const newProduct = {
           id: lastId + 1,
-          category: categoryRef.current.value.split(","),
+          category: ["Semua Produk", ...categoryRef.current.value.split(",")],
           color: colorRef.current.value,
           image: imageRef.current.value,
           name: nameRef.current.value,
@@ -59,10 +59,6 @@ const CreateForm = () => {
     },
     [products, setProducts]
   );
-
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
 
   return (
     <StyledCreateForm onSubmit={submitHandler}>
