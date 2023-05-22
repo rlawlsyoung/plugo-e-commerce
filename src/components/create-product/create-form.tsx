@@ -44,7 +44,6 @@ const CreateForm = () => {
         };
 
         setProducts([...products, newProduct]);
-        console.log([...products, newProduct]);
 
         alert("Product Created!");
 
