@@ -7,6 +7,7 @@ import GlobalStyle from "./styles/global-style";
 import Header from "./components/header/header";
 import CreateProduct from "./pages/create-product";
 import ProductDetail from "./pages/product-detail";
+import Cart from "./pages/cart";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/create" element={<CreateProduct />} />
           <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Header />
       </RecoilRoot>
