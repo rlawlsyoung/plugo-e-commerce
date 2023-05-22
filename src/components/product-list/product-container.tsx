@@ -7,11 +7,10 @@ interface Props {
   image: string;
   name: string;
   price: number;
-  quantity: string;
+  quantity: number;
 }
 
 const ProductContainer: React.FC<Props> = ({
-  color,
   image,
   name,
   price,
@@ -32,6 +31,7 @@ const ProductContainer: React.FC<Props> = ({
 };
 
 const StyledProductContainer = styled.div`
+  margin: 12px;
   cursor: pointer;
 `;
 
@@ -45,11 +45,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-interface QuantityProps {
-  quantity: number;
-}
-
-const Quantity = styled.p<QuantityProps>`
+const Quantity = styled.p<{ quantity: number }>`
   position: absolute;
   left: 7.5px;
   bottom: 7.5px;
@@ -60,13 +56,14 @@ const Quantity = styled.p<QuantityProps>`
 `;
 
 const Name = styled.p`
-  color: ${darkGreen};
   padding: 30px 0 5px 0;
+  font-weight: 500;
+  color: ${darkGreen};
 `;
 
 const Price = styled.p`
-  color: ${lightDarkGreen};
   padding: 0 0 60px 0;
+  color: ${lightDarkGreen};
 `;
 
 export default ProductContainer;
