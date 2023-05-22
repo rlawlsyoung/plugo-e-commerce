@@ -5,6 +5,7 @@ import Product from "../components/cart/product";
 import Sum from "../components/cart/sum";
 import { cartAtom } from "../atom";
 import { CartProductType } from "./product-detail";
+import { responsive } from "../styles/theme";
 
 const Cart = () => {
   const [cart, setCart] = useRecoilState<CartProductType[]>(cartAtom);
@@ -30,6 +31,11 @@ const StyledCart = styled.div`
   justify-content: center;
   margin-top: 112px;
   margin-bottom: 60px;
+
+  @media ${responsive.tablet} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ProductsWrapper = styled.div`

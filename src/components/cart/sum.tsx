@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { cartAtom } from "../../atom";
 import { CartProductType } from "../../pages/product-detail";
-import { darkGreen, lightDarkGreen } from "../../styles/theme";
+import { darkGreen, lightDarkGreen, responsive } from "../../styles/theme";
 
 const Sum = () => {
   const cart = useRecoilValue<CartProductType[]>(cartAtom);
@@ -32,6 +32,12 @@ const StyledSum = styled.div`
   height: 200px;
   padding: 20px;
   margin-left: 20px;
+  border-radius: 3.5px;
+
+  @media ${responsive.tablet} {
+    margin: 0;
+    width: 90vw;
+  }
 `;
 
 const Text = styled.p`

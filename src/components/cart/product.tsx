@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { darkGreen, lightDarkGreen } from "../../styles/theme";
+import { darkGreen, lightDarkGreen, responsive } from "../../styles/theme";
 
 interface Props {
   name: string | undefined;
@@ -31,6 +31,10 @@ const StyledProduct = styled.div`
   margin-bottom: 10px;
   border-radius: 3.5px;
   background-color: white;
+
+  @media ${responsive.tablet} {
+    width: 90vw;
+  }
 `;
 
 const Image = styled.img`
