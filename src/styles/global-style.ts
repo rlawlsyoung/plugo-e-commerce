@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
+import { bgColor } from "./theme";
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
@@ -13,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin:0 auto;
+    background-color: ${bgColor};
     font-family: 'Pretendard', sans-serif;
   }
 `;
