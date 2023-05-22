@@ -1,6 +1,8 @@
 import { atom } from "recoil";
 
-const productsAtom = atom({
+import { ProductType } from "./pages/product-list";
+
+const productsAtom = atom<ProductType[]>({
   key: "products",
   default: [],
 });

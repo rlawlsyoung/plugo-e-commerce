@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin:0 auto;
     background-color: ${bgColor};
-    font-family: 'Pretendard', sans-serif;
-  }
+    font-family: 'Cabin', sans-serif;
+    }
 `;
 
 export default GlobalStyle;
