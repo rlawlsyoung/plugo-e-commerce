@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -60,10 +60,6 @@ const ProductDetail = () => {
     }
     alert("Successfully placed in cart!");
   }, [currentProduct, cart, setCart]);
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   return (
     <StyledProductDetail>
