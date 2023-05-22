@@ -11,8 +11,8 @@ interface Props {
   color: string;
   image: string;
   name: string;
-  price: number;
-  quantity: number;
+  price: string;
+  quantity: string;
 }
 
 const ProductContainer: React.FC<Props> = ({
@@ -25,12 +25,12 @@ const ProductContainer: React.FC<Props> = ({
     <StyledProductContainer>
       <ImgWrapper>
         <Img src={image} alt={name} />
-        <Quantity quantity={quantity}>
-          {quantity ? "Ada Stok" : "Stok menipis"}
+        <Quantity quantity={Number(quantity)}>
+          {Number(quantity) ? "Ada Stok" : "Stok menipis"}
         </Quantity>
       </ImgWrapper>
       <Name>{name}</Name>
-      <Price>Rp {price.toLocaleString("en-US")}</Price>
+      <Price>Rp {price?.toLocaleString()}</Price>
     </StyledProductContainer>
   );
 };

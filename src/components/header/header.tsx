@@ -1,7 +1,12 @@
+import { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { bgColor, deepDarkGreen } from "../../styles/theme";
+import { ProductType } from "../../pages/product-list";
+import { productsAtom } from "../../atom";
 
 const menuList = [
   { text: "HOME", url: "/" },
@@ -11,6 +16,17 @@ const menuList = [
 ];
 
 const Header = () => {
+  const setProducts = useSetRecoilState<ProductType[]>(productsAtom);
+
+  useEffect(() => {
+    axios({
+      url: "/public/mock-data.json",
+      method: "get",
+    }).then((res) => {
+      setProducts(res.data.products);
+    });
+  }, [setProducts]);
+
   return (
     <StyledHeader>
       <MenuWrapper>

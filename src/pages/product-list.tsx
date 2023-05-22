@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { useRecoilState } from "recoil";
-import axios from "axios";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import ProductContainer from "../components/product-list/product-container";
@@ -13,12 +12,12 @@ export interface ProductType {
   color: string;
   image: string;
   name: string;
-  price: number;
-  quantity: number;
+  price: string;
+  quantity: string;
 }
 
 const ProductList = () => {
-  const [products, setProducts] = useRecoilState<ProductType[]>(productsAtom);
+  const products = useRecoilValue<ProductType[]>(productsAtom);
   const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [filter, setFilter] = useState("Semua Produk");
 
@@ -27,14 +26,8 @@ const ProductList = () => {
   }, []);
 
   useEffect(() => {
-    axios({
-      url: "/public/mock-data.json",
-      method: "get",
-    }).then((res) => {
-      setProducts(res.data.products);
-      setFilteredProducts(res.data.products);
-    });
-  }, [setProducts]);
+    setFilteredProducts(products);
+  }, [products]);
 
   useEffect(() => {
     setFilteredProducts(
