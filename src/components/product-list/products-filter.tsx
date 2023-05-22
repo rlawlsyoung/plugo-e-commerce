@@ -34,8 +34,7 @@ const ProductsFilter: React.FC<Props> = ({ filterHandler, filterState }) => {
 
 const StyledProductsFilter = styled.div`
   height: 600px;
-  margin-top: 14px;
-  margin-right: 12px;
+  margin: 12px 12px 0 0;
   padding: 10px;
   border: 1px solid ${lightDarkGreen};
   border-radius: 5px;

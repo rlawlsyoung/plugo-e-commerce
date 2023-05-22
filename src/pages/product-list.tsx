@@ -63,7 +63,8 @@ const ProductList = () => {
 
 const StyledProductList = styled.div`
   display: flex;
-  padding: 20px;
+  margin-top: 112px;
+  padding: 0 20px 20px 20px;
 `;
 
 const ProductsContainer = styled.div`

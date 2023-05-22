@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil";
 
 import ProductList from "./pages/product-list";
 import GlobalStyle from "./styles/global-style";
+import Header from "./components/header/header";
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<ProductList />} />
         </Routes>
+        <Header />
       </RecoilRoot>
     </BrowserRouter>
   );

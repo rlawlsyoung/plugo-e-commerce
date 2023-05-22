@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   body {
-    margin:0 auto;
+    margin: 0 auto;
     background-color: ${bgColor};
     font-family: 'Cabin', sans-serif;
     }
