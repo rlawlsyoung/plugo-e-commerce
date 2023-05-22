@@ -24,29 +24,31 @@ const CreateForm = () => {
     });
   }, [setProducts]);
 
-  const submitHandler = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(products);
-    const lastId = products[products.length - 1].id;
-    const newProduct = {
-      id: lastId + 1,
-      category: ["Semua Produk", "Produk Unggulan", "Produk Baru"],
-      color: colorRef.current?.value,
-      image: imageRef.current?.value,
-      name: nameRef.current?.value,
-      price: priceRef.current?.value,
-      quantity: quantityRef.current?.value,
-    };
+  const submitHandler = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      console.log(products);
+      const lastId = products[products.length - 1].id;
+      const newProduct = {
+        id: lastId + 1,
+        category: ["Semua Produk", "Produk Unggulan", "Produk Baru"],
+        color: colorRef.current?.value,
+        image: imageRef.current?.value,
+        name: nameRef.current?.value,
+        price: priceRef.current?.value,
+        quantity: quantityRef.current?.value,
+      };
 
-    setProducts([...products]);
-  }, []);
+      setProducts([...products, newProduct]);
+    },
+    [products, setProducts]
+  );
 
   return (
     <StyledCreateForm onSubmit={submitHandler}>
       <InputWrapper>
         <InputTitle>Image</InputTitle>
         <Input
-          type="text"
           placeholder="fill in the url"
           autoComplete="off"
           ref={imageRef}
@@ -55,7 +57,6 @@ const CreateForm = () => {
       <InputWrapper>
         <InputTitle>Name</InputTitle>
         <Input
-          type="text"
           placeholder="fill in 2 ~ 16 characters"
           autoComplete="off"
           ref={nameRef}
@@ -64,7 +65,6 @@ const CreateForm = () => {
       <InputWrapper>
         <InputTitle>Color</InputTitle>
         <Input
-          type="text"
           placeholder="fill in 2 ~ 16 characters"
           autoComplete="off"
           ref={colorRef}
@@ -73,7 +73,6 @@ const CreateForm = () => {
       <InputWrapper>
         <InputTitle>Price</InputTitle>
         <Input
-          type="number"
           placeholder="fill in the numbers"
           autoComplete="off"
           ref={priceRef}
@@ -82,7 +81,6 @@ const CreateForm = () => {
       <InputWrapper>
         <InputTitle>Quantity</InputTitle>
         <Input
-          type="number"
           placeholder="fill in the numbers"
           autoComplete="off"
           ref={quantityRef}
@@ -91,7 +89,6 @@ const CreateForm = () => {
       <InputWrapper>
         <InputTitle>Category</InputTitle>
         <Input
-          type="text"
           placeholder="Separate by comma(,) ex) Produk Unggulan,Produk Bundle"
           autoComplete="off"
           ref={categoryRef}

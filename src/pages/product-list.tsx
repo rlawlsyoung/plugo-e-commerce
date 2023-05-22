@@ -10,11 +10,11 @@ import { productsAtom } from "../atom";
 export interface ProductType {
   id: string;
   category: string[];
-  color: string;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
+  color: string | undefined;
+  image: string | undefined;
+  name: string | undefined;
+  price: string | undefined;
+  quantity: string | undefined;
 }
 
 const ProductList = () => {

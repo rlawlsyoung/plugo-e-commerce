@@ -8,11 +8,11 @@ import {
 } from "../../styles/theme";
 
 interface Props {
-  color: string;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
+  color: string | undefined;
+  image: string | undefined;
+  name: string | undefined;
+  price: string | undefined;
+  quantity: string | undefined;
 }
 
 const ProductContainer: React.FC<Props> = ({
@@ -25,12 +25,12 @@ const ProductContainer: React.FC<Props> = ({
     <StyledProductContainer>
       <ImgWrapper>
         <Img src={image} alt={name} />
-        <Quantity quantity={quantity}>
-          {quantity ? "Ada Stok" : "Stok menipis"}
+        <Quantity quantity={Number(quantity)}>
+          {Number(quantity) ? "Ada Stok" : "Stok menipis"}
         </Quantity>
       </ImgWrapper>
       <Name>{name}</Name>
-      <Price>Rp {price.toLocaleString("en-US")}</Price>
+      <Price>Rp {price?.toLocaleString()}</Price>
     </StyledProductContainer>
   );
 };
@@ -60,7 +60,7 @@ const Img = styled.img`
   }
 `;
 
-const Quantity = styled.p<{ quantity: number }>`
+const Quantity = styled.p<{ quantity: number | undefined }>`
   position: absolute;
   left: 7.5px;
   bottom: 7.5px;
