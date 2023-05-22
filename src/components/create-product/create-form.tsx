@@ -1,6 +1,5 @@
 import { useCallback, useRef, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import axios from "axios";
 import styled from "styled-components";
 
 import { productsAtom } from "../../atom";
@@ -15,34 +14,55 @@ const CreateForm = () => {
   const quantityRef = useRef<HTMLInputElement>(null);
   const categoryRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    axios({
-      url: "/public/mock-data.json",
-      method: "get",
-    }).then((res) => {
-      setProducts(res.data.products);
-    });
-  }, [setProducts]);
-
   const submitHandler = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log(products);
       const lastId = products[products.length - 1].id;
-      const newProduct = {
-        id: lastId + 1,
-        category: ["Semua Produk", "Produk Unggulan", "Produk Baru"],
-        color: colorRef.current?.value,
-        image: imageRef.current?.value,
-        name: nameRef.current?.value,
-        price: priceRef.current?.value,
-        quantity: quantityRef.current?.value,
-      };
+      if (
+        imageRef.current?.value &&
+        nameRef.current?.value &&
+        colorRef.current?.value &&
+        priceRef.current?.value &&
+        quantityRef.current?.value &&
+        categoryRef.current?.value &&
+        nameRef.current.value.length <= 16 &&
+        nameRef.current.value.length >= 2 &&
+        colorRef.current.value.length <= 16 &&
+        colorRef.current.value.length >= 2 &&
+        !isNaN(Number(priceRef.current.value)) &&
+        !isNaN(Number(quantityRef.current.value))
+      ) {
+        const newProduct = {
+          id: lastId + 1,
+          category: categoryRef.current.value.split(","),
+          color: colorRef.current.value,
+          image: imageRef.current.value,
+          name: nameRef.current.value,
+          price: priceRef.current.value,
+          quantity: quantityRef.current.value,
+        };
 
-      setProducts([...products, newProduct]);
+        setProducts([...products, newProduct]);
+        console.log([...products, newProduct]);
+
+        alert("Product Created!");
+
+        imageRef.current.value = "";
+        nameRef.current.value = "";
+        colorRef.current.value = "";
+        priceRef.current.value = "";
+        quantityRef.current.value = "";
+        categoryRef.current.value = "";
+      } else {
+        alert("Please enter it according to the conditions.");
+      }
     },
     [products, setProducts]
   );
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   return (
     <StyledCreateForm onSubmit={submitHandler}>

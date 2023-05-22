@@ -8,11 +8,11 @@ import {
 } from "../../styles/theme";
 
 interface Props {
-  color: string | undefined;
-  image: string | undefined;
-  name: string | undefined;
-  price: string | undefined;
-  quantity: string | undefined;
+  color: string;
+  image: string;
+  name: string;
+  price: string;
+  quantity: string;
 }
 
 const ProductContainer: React.FC<Props> = ({
@@ -60,7 +60,7 @@ const Img = styled.img`
   }
 `;
 
-const Quantity = styled.p<{ quantity: number | undefined }>`
+const Quantity = styled.p<{ quantity: number }>`
   position: absolute;
   left: 7.5px;
   bottom: 7.5px;
