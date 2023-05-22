@@ -22,7 +22,7 @@ const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [filter, setFilter] = useState("Semua Produk");
 
-  const onClickHandler = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+  const filterHandler = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target instanceof Element) setFilter(e.target.id);
   }, []);
 
@@ -40,12 +40,12 @@ const ProductList = () => {
     setFilteredProducts(
       products.filter((product) => product.category.includes(filter))
     );
-  }, [filter]);
+  }, [filter, products]);
 
   return (
-    <>
+    <StyledProductList>
+      <ProductsFilter filterHandler={filterHandler} filterState={filter} />
       <ProductsContainer>
-        <ProductsFilter onClickHandler={onClickHandler} />
         {filteredProducts.map((product) => (
           <ProductContainer
             key={product.id}
@@ -57,12 +57,19 @@ const ProductList = () => {
           />
         ))}
       </ProductsContainer>
-    </>
+    </StyledProductList>
   );
 };
 
+const StyledProductList = styled.div`
+  display: flex;
+  padding: 20px;
+`;
+
 const ProductsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
 `;
 
 export default ProductList;
