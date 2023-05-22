@@ -1,8 +1,9 @@
-import { useRecoilValue } from "recoil";
+import { useCallback, useEffect } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import { productsAtom } from "../atom";
+import { productsAtom, cartAtom } from "../atom";
 import { ProductType } from "./product-list";
 import {
   deepDarkGreen,
@@ -12,12 +13,56 @@ import {
   responsive,
 } from "../styles/theme";
 
+export interface CartProductType {
+  id: string | undefined;
+  category: string[] | undefined;
+  color: string | undefined;
+  image: string | undefined;
+  name: string | undefined;
+  price: string | undefined;
+  quantity: string | undefined;
+  cartQuantity: number;
+}
+
 const ProductDetail = () => {
   const params = useParams();
   const products = useRecoilValue<ProductType[]>(productsAtom);
+  const [cart, setCart] = useRecoilState<CartProductType[]>(cartAtom);
   const currentProduct = products.find(
     (product) => Number(product.id) === Number(params.id)
   );
+
+  const cartHandler = useCallback(() => {
+    const existingProduct = cart.filter(
+      (product) => product.id === currentProduct?.id
+    )[0];
+
+    if (existingProduct) {
+      const newCart = cart.map((product) =>
+        product.id === existingProduct.id
+          ? { ...product, cartQuantity: existingProduct.cartQuantity + 1 }
+          : product
+      );
+      setCart(newCart);
+    } else {
+      const currentCartProduct = {
+        id: currentProduct?.id,
+        category: currentProduct?.category,
+        color: currentProduct?.color,
+        image: currentProduct?.image,
+        name: currentProduct?.name,
+        price: currentProduct?.price,
+        quantity: currentProduct?.quantity,
+        cartQuantity: 1,
+      };
+
+      setCart([currentCartProduct, ...cart]);
+    }
+  }, [currentProduct, cart, setCart]);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <StyledProductDetail>
@@ -28,7 +73,7 @@ const ProductDetail = () => {
         </Quantity>
         <Name>{currentProduct?.name}</Name>
         <Price>Rp {currentProduct?.price?.toLocaleString()}</Price>
-        <Button>Tambah Ke Keranjang</Button>
+        <Button onClick={cartHandler}>Tambah Ke Keranjang</Button>
       </InfoContainer>
     </StyledProductDetail>
   );
